@@ -1,7 +1,7 @@
-# This is a backend of boighor project (A book shop).
+# This backend project for a complete website of a tutor service
 
 # Features
 
-1. This backend is build on nodejs. Also use express and mongodb.
-2. This API is not secured only security is given by front end part.
-3. You can manage your shop here.
+1. You can add service and manage it as admin.
+2. You can see the booking list and process it as admin.
+3. AS user you can give review and order services.
