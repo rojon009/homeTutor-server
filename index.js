@@ -17,8 +17,6 @@ app.use(express.urlencoded({ extended: true }));
 const port = process.env.PORT || 5000;
 
 client.connect((err) => {
-  // const orderCollection = client.db("boighor").collection("orders");
-  // const booksCollection = client.db("boighor").collection("books");
 
   const serviceCollection = client.db("tutorDB").collection("services");
   const reviewCollection = client.db("tutorDB").collection("reviews");
@@ -26,6 +24,9 @@ client.connect((err) => {
   const bookingCollection = client.db("tutorDB").collection("bookings");
 
 
+
+
+  // Service Making Route
 
   app.post("/services/addService", (req,res) => {
     const service = req.body;
@@ -66,6 +67,7 @@ client.connect((err) => {
 
 
 
+  //Review Route
 
   app.post("/reviews/addReviews", (req,res) => {
     const review = req.body;
@@ -92,6 +94,7 @@ client.connect((err) => {
 
 
 
+  //Bookings Route
 
   app.post("/bookings/addBooking", (req,res) => {
     const booking = req.body;
@@ -140,14 +143,6 @@ client.connect((err) => {
       });
   });
 
-  //   app.get("/booking/:uid", (req,res) => {
-  //     orderCollection
-  //     .find({userId: req.params.uid})
-  //     .toArray((err, docs) => {
-  //         res.send(docs)
-  //     })
-  // })
-
   app.get("/bookings/booking/:id", (req, res) => {
     bookingCollection
       .findOne({
@@ -174,6 +169,8 @@ client.connect((err) => {
     .then(result => res.send(result))
   })
   
+
+  //Admin Making Route
   app.get("/admins", (req, res)=>{
     adminCollection
     .find({})
